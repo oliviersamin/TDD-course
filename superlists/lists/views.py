@@ -4,4 +4,8 @@ from django.http import HttpResponse
 
 def home_page(request):
     template = "home.html"
-    return render(request, template)
+    return render(
+        request,
+        template,
+        {"new_item_text": request.POST.get("item_text", "")}
+    )
